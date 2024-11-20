@@ -83,13 +83,13 @@ input:focus, select:focus {
 }
 
 .dark-mode 
-.country-data__info, 
-.dark-mode .country-data__info .table-cell-info {
-  color: var(--Dark-Gray-Light-Mode-Input);
+.country-data__info  {
+  color: var(--White-Dark-Mode-Text-and-Light-Mode-Elements);
 }
 
 .dark-mode .country-data__info .table-cell-info {
   font-weight: 300;
+  color:hsl(0, 0%, 92%);
 }
 
 @font-face {

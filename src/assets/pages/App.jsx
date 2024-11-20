@@ -33,7 +33,7 @@ function App() {
 
   const router =  createBrowserRouter([
     {
-      path:'/',
+      path:'/rest-countries-api/',
       element: <Main  data={data || ''} 
                       setData={setData || ''} 
                       originalData={originalData || ''} 

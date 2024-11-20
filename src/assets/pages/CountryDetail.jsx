@@ -26,7 +26,7 @@ export default function CountryDetail() {
   return (
     <section className='country-data-container'>
         <div className="container">
-            <Link className='back-btn link flex-item' to ='/'>
+            <Link className='back-btn link flex-item' to ='/rest-countries-api/'>
                 <i className="fa-solid fa-arrow-left"></i>
                 Back 
             </Link>
