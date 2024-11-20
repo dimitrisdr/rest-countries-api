@@ -314,9 +314,13 @@
     }
 }
 
+.loading-more {
+    margin-inline: auto;
+    padding-block: 1.5rem;
+}
+
 @media screen and (min-width:30em) {
 
-    
 
     .tables-container {
         grid-template-columns: repeat(2, 1fr);
