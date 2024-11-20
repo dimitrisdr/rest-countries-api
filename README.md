@@ -19,7 +19,7 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.jpeg)
 
 ### Links
 
@@ -41,9 +41,6 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
 
 .loading-comp {
