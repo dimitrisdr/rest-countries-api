@@ -283,11 +283,6 @@
     color:#ffbb00
 }
 
-/* .dark-mode .loading-comp {
-    background-color: hsl(207, 26%, 17%);
-    color: hsl(0, 0%, 100%);
-} */
-
 .loading-comp::after {
     content: '';
     position: absolute;

@@ -2,7 +2,7 @@ import SelectGroup from "./SelectGroup"
 import InputGroup from "./InputGroup"
 import { useEffect, useState } from "react";
 
-export default function ToolsBar({data, setData, originalData}) {
+export default function ToolsBar({setData, originalData}) {
     
     const [searchData, setSearchData] = useState('');
     const [filterData, setFilterData] = useState('')
