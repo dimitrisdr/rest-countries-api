@@ -21,8 +21,6 @@ export default function CountryDetail() {
         {'Languages':Object.values(data.languages).join(' ')},
 ]
 
-
-
   return (
     <section className='country-data-container'>
         <div className="container">
