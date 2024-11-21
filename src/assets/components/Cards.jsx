@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import Card from "./Card"
 
 export default function Cards({data}) {
-    const visibleDataAmount = 50;
+    const visibleDataAmount = 12;
     const [visibleData, setVisibleData] = useState([]);
     const [itemsToLoad, setItemsToLoad] = useState(visibleDataAmount);
     const [isallDataLoaded, setIsAllDataLoaded] = useState(false);
@@ -10,7 +10,6 @@ export default function Cards({data}) {
 
     useEffect(()=> {
         setVisibleData(data.slice(0, itemsToLoad))
-        console.log(visibleData.length)
     }, [data, itemsToLoad])
 
     useEffect(()=> {
@@ -22,16 +21,16 @@ export default function Cards({data}) {
                     if (visibleData.length < data.length){
                         setItemsToLoad((prevItems )=> prevItems + visibleDataAmount)
                     }else {
-                        observer.disconnect()
                         setIsAllDataLoaded(true)
-                        console.log(isallDataLoaded)
+                        observer.disconnect()
+  
                     }   
                 }
             }
         )
         if (loadRef.current) observer.observe(loadRef.current)
         return () => observer.disconnect() 
-    }, [])
+    }, [visibleData])
 
     return (
             <>
