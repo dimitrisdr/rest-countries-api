@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import Card from "./Card"
 
-export default function Cards({data}) {
-    const visibleDataAmount = 12;
+export default function Cards({data, visibleDataAmount, itemsToLoad, setItemsToLoad}) {
+
     const [visibleData, setVisibleData] = useState([]);
-    const [itemsToLoad, setItemsToLoad] = useState(visibleDataAmount);
     const [isallDataLoaded, setIsAllDataLoaded] = useState(false);
     const loadRef = useRef(null);
+
 
     useEffect(()=> {
         setVisibleData(data.slice(0, itemsToLoad))
@@ -19,7 +19,7 @@ export default function Cards({data}) {
                 
                 if (target.isIntersecting){
                     if (visibleData.length < data.length){
-                        setItemsToLoad((prevItems )=> prevItems + visibleDataAmount)
+                        setItemsToLoad((prevItems )=> prevItems + 4)
                     }else {
                         setIsAllDataLoaded(true)
                         observer.disconnect()

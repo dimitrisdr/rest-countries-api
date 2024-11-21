@@ -2,23 +2,22 @@ import SelectGroup from "./SelectGroup"
 import InputGroup from "./InputGroup"
 import { useEffect, useState } from "react";
 
-export default function ToolsBar({setData, originalData}) {
+export default function ToolsBar({setData, originalData, setItemsToLoad, startVisibleDataAmount}) {
     
     const [searchData, setSearchData] = useState('');
-    const [filterData, setFilterData] = useState('')
+    const [filterData, setFilterData] = useState('');
 
     function updateData() {
         const newData = originalData.filter(countryData => {
-            // console.log(filterData)
+            setItemsToLoad(startVisibleDataAmount);
             return countryData.name.common.toLowerCase().includes(searchData.toLowerCase()) && countryData.region.includes(filterData)
         }
         )
-        // console.log(newData)
-        setData(newData)
+        setData(newData);
     }
 
     useEffect(()=> {
-        updateData()
+        updateData();
     }, [searchData, filterData])  
 
     return (
