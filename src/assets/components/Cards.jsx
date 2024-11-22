@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import Card from "./Card"
 
-export default function Cards({data, visibleDataAmount, itemsToLoad, setItemsToLoad}) {
+export default function Cards({data, itemsToLoad, setItemsToLoad}) {
 
     const [visibleData, setVisibleData] = useState([]);
     const [isallDataLoaded, setIsAllDataLoaded] = useState(false);
