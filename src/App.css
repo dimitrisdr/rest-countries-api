@@ -151,6 +151,10 @@
     /* align-self: flex-start; */
 }
 
+.title-container {
+    justify-content: space-between;
+}
+
 .country-info {
     gap: 1rem;
 }
