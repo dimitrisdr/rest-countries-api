@@ -40,7 +40,8 @@ input:focus, select:focus {
 }
 
 :root {
-  --Dark-Blue-Dark-Mode-Elements: hsl(209, 23%, 22%);
+  --Dark-Blue-Dark-Mode-Elements: hsl(208, 23%, 22%);
+  --Dark-lighter-Blue-Dark-Mode-Elements: #52728f;
   --Very-Dark-Blue-Dark-Mode-Background: hsl(207, 26%, 17%);
   --Very-Dark-Blue-Light-Mode-Text: hsl(200, 15%, 8%);
   --Dark-Gray-Light-Mode-Input: hsl(0, 0%, 52%);
@@ -90,6 +91,14 @@ input:focus, select:focus {
 .dark-mode .country-data__info .table-cell-info {
   font-weight: 300;
   color:hsl(0, 0%, 92%);
+}
+
+.dark-mode .loading-more {
+  color:hsl(0, 0%, 92%);
+}
+
+.dark-mode .map-icon {
+  fill:hsl(0, 0%, 65%);
 }
 
 @font-face {

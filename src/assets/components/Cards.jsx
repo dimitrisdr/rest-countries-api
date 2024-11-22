@@ -6,7 +6,7 @@ export default function Cards({data, itemsToLoad, setItemsToLoad}) {
     const [visibleData, setVisibleData] = useState([]);
     const [isallDataLoaded, setIsAllDataLoaded] = useState(false);
     const loadRef = useRef(null);
-    console.log(data[0])
+    // console.log(data[0])
 
     useEffect(()=> {
         setVisibleData(data.slice(0, itemsToLoad))

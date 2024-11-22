@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DataTable from "./DataTable";
+import MapLink from "./mapLink";
 export default function Card({countryData}) {
 
 
@@ -10,16 +11,21 @@ export default function Card({countryData}) {
     ]
     
     return (
-        <Link className="link" to={`/countries/${countryData.name.common}`} state={{data: countryData}}>
+        <section>
 
             <div className="card">
-                <img src={countryData.flags.svg} className="img flag-img" />
+                <Link className="link" to={`/countries/${countryData.name.common}`} state={{data: countryData}}>
+                    <img src={countryData.flags.svg} className="img flag-img" />
+                </Link>
                 <div className="country-info">
-                    <h2 className="title country-info__title fw-800 fs-500">{countryData.name.common}</h2>
+                    <div className="title-container flex-item">
+                        <h2 className="title country-info__title fw-800 fs-500">{countryData.name.common}</h2>
+                        <MapLink dataUrl={countryData.maps.googleMaps}/>
+                    </div>
                     <DataTable data={dataStructure} /> 
                 </div>
             </div>
 
-        </Link>
+        </section>
     )
 };
