@@ -78,9 +78,13 @@ input:focus, select:focus {
   --txt-clr: hsl(0, 0%, 100%);
 }
 
+.dark-mode .card {
+  --box-shadow: #132631;
+}
+
 .dark-mode .table-cell-info,
 .dark-mode .border-countries-title {
-  color:  hsl(0, 0%, 98%);
+  color: hsl(0, 0%, 98%);
 }
 
 .dark-mode 
