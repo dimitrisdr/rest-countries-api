@@ -102,6 +102,11 @@ input:focus, select:focus {
   fill:hsl(225, 56%, 76%);
 }
 
+.dark-mode .map-icon:hover {
+  transition: fill 0.2s ease-in;
+  fill: hsl(222, 14%, 82%);
+}
+
 @font-face {
   font-family: 'Nurito-Sans';
   src: url('/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
