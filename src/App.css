@@ -83,6 +83,7 @@
     width: 100%;
     top:calc(100% + 0.4rem);
     left: 0;
+    z-index: 10000;
     background-color: var(--bg-clr);
     color: var(--txt-clr);
     padding: 1rem;
