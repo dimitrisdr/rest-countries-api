@@ -1,7 +1,7 @@
 import { useLocation} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import DataTable from '../components/DataTable';
-
+import MapLink from '../components/mapLink';
 
 export default function CountryDetail() {
     let location = useLocation()
@@ -33,7 +33,10 @@ export default function CountryDetail() {
                     <img src={data.flags.svg  || ''} alt="image" className="img" />
                 </div>
                 <div className="country-data__info grid-item">
-                    <h2 className="country-name title fw-800 fs-600">{data.name.official  || ''}</h2>
+                    <div className="title-container flex-item">
+                        <h2 className="country-name title fw-800 fs-600">{data.name.official  || ''}</h2>
+                        <MapLink dataUrl={data.maps.googleMaps}/>
+                    </div>
                     <div className="tables-container grid-item">
                         <DataTable data={dataSturctureMain}/>
                         <DataTable data={dataSturctureSecondary}/>

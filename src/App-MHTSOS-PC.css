@@ -157,13 +157,14 @@
 
 .card .flag-img {
     scale: 1;
-    transition: scale 0.5s ease-in;
+    transition: scale 0.2s ease-in;
 }
 
 .card .flag-img:hover {
-    scale: 1.15;
-}
+    scale: 1.2;
+    transition: scale 0.2s ease-in;
 
+}
 
 .title-container {
     justify-content: space-between;

@@ -8,7 +8,7 @@ export default function Main({data, setData, originalData, loading, error}) {
     if (loading) return <LoadingRing />
     if (error) return <PageNotFound />
 
-    const startVisibleDataAmount = 12;
+    const startVisibleDataAmount = 24;
     const [itemsToLoad, setItemsToLoad] = useState(startVisibleDataAmount);
 
     return (
