@@ -54,7 +54,6 @@ input:focus, select:focus {
   --box-shadow: rgba(170, 170, 170, 0.486);
 }
 
-
 .dark-mode {
   --bg-clr: hsl(207, 26%, 17%);
   --txt-clr:hsl(0, 0%, 100%);
