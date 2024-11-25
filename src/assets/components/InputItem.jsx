@@ -8,7 +8,7 @@ export default function InputItem({name, isOpened, setIsOpened, setIsSelected, s
     }
 
     return (
-        <li className="options-item flex-item">
+        <li role="option" className="options-item flex-item">
             <label htmlFor={name} className="options-item__name">
                 <input 
                     type="radio"

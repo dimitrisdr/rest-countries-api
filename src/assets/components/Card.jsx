@@ -5,7 +5,7 @@ import MapLink from "./mapLink";
 export default function Card({countryData}) {
 
     const BASE_PATH = import.meta.env.VITE_BASE_PATH || "/rest-countries-api/";
-    
+
     const dataStructure = [
         {Population: new Intl.NumberFormat('de-DE').format(countryData.population)},
         {region: countryData.region},
@@ -13,7 +13,7 @@ export default function Card({countryData}) {
     ]
     
     return (
-        <section>
+        <section aria-label="card section">
 
             <div className="card">
                 <Link className="link" to={`${BASE_PATH}countries/${countryData.name.common}`} state={{data: countryData}}>
