@@ -13,7 +13,7 @@ export default function Card({countryData}) {
     ]
     
     return (
-        <section aria-label="card section">
+        <section aria-label="card-section">
 
             <div className="card">
                 <Link className="link" to={`${BASE_PATH}countries/${countryData.name.common}`} state={{data: countryData}}>
