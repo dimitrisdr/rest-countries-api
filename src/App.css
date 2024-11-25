@@ -154,10 +154,12 @@
     overflow: hidden;
 }
 
+
 .card .flag-img {
     scale: 1;
     transition: scale 0.5s ease-in;
 }
+
 
 .card .flag-img:hover {
     scale: 1.15;
@@ -172,6 +174,10 @@
     justify-content: unset;
     gap: 2rem;
     align-items: center;
+}
+
+.maps-link {
+    flex-basis: 30%;
 }
 
 .map-icon {
