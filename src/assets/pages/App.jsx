@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import '/src/App.css'
 import Header from '../components/Header'
 import Main from '../components/MainContainer'
@@ -8,12 +8,15 @@ import PageNotFound from '../components/PageNotFound'
 
 function App() {
 
+  const BASE_PATH = import.meta.env.VITE_BASE_PATH || "/rest-countries-api/";
+ 
+
   const [data, setData] = useState([])
   const [originalData, setOrginalData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  async function fetchCountries () {
+  const fetchCountries = useCallback(async ()=> {
     try {
       setLoading(true)
       const response = await fetch('https://restcountries.com/v3.1/all?fields=maps,population,name,flags,cca3,capital,region,subregion,tld,currencies,languages')
@@ -29,11 +32,12 @@ function App() {
     }finally {
       setLoading(false)
     }
-}
+  })
 
-  const router =  createBrowserRouter([
+
+  const router = useMemo(() =>createBrowserRouter([
     {
-      path:'/rest-countries-api/',
+      path:BASE_PATH,
       element: <Main  data={data || ''} 
                       setData={setData || ''} 
                       originalData={originalData || ''} 
@@ -43,7 +47,7 @@ function App() {
       errorElement: <PageNotFound />
     },
     {
-      path:'/countries/:countryId',
+      path: `${BASE_PATH}countries/:countryId`,
       element: <CountryDetail />,
       errorElement: <PageNotFound />
     }
@@ -56,7 +60,8 @@ function App() {
       v7_partialHydration: true,
     },
     
-  })
+  }), [BASE_PATH, data, setData, originalData, loading, error])
+
   
   useEffect(()=> {
     const currentLocaleStorageTheme = localStorage.getItem('theme');

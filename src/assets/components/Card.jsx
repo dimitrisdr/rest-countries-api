@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import DataTable from "./DataTable";
 import MapLink from "./mapLink";
+
 export default function Card({countryData}) {
 
-
+    const BASE_PATH = import.meta.env.VITE_BASE_PATH || "/rest-countries-api/";
+    
     const dataStructure = [
         {Population: new Intl.NumberFormat('de-DE').format(countryData.population)},
         {region: countryData.region},
@@ -14,7 +16,7 @@ export default function Card({countryData}) {
         <section>
 
             <div className="card">
-                <Link className="link" to={`/countries/${countryData.name.common}`} state={{data: countryData}}>
+                <Link className="link" to={`${BASE_PATH}countries/${countryData.name.common}`} state={{data: countryData}}>
                 <div className="img-container">
                     <img src={countryData.flags.svg} className="img flag-img" />
                 </div>
