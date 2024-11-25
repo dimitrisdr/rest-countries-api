@@ -50,6 +50,10 @@ function App() {
       path: `${BASE_PATH}countries/:countryId`,
       element: <CountryDetail />,
       errorElement: <PageNotFound />
+    },
+    {
+      path: '*', // Catch-all route for unmatched paths
+      element: <PageNotFound />,
     }
   ],  {
     future: {
@@ -59,6 +63,7 @@ function App() {
       v7_relativeSplatPath: true,
       v7_partialHydration: true,
     },
+
     
   }), [BASE_PATH, data, setData, originalData, loading, error])
 

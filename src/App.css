@@ -6,7 +6,6 @@
 
 .main {
     max-width: 1250px;
-
 }
 
 .header-container {
@@ -149,7 +148,6 @@
     background-color: var(--bg-clr);
     color: var(--txt-clr);
     border-radius: 12px;
-    /* align-self: flex-start; */
 }
 
 .card .img-container {
