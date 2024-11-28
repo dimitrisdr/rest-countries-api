@@ -19,7 +19,7 @@ function App() {
   const fetchCountries = useCallback(async ()=> {
     try {
       setLoading(true)
-      const response = await fetch('https://restcountries.com/v3.1/all?fields=landlocked,unMember,maps,population,name,flags,cca3,capital,region,subregion,tld,currencies,languages')
+      const response = await fetch('https://restcountries.com/v3.1/all?fields=independent,landlocked,unMember,maps,population,name,flags,cca3,capital,region,subregion,tld,currencies,languages')
       if (!response.ok) {
         throw new Error('failed to fetch data')
       }

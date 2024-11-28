@@ -1,17 +1,16 @@
 import { useState } from "react"
 
-export default function ExtraTools() {
+export default function ExtraTools({extraToolsData, setExtraToolsData}) {
     
     const [isOpened, setIsOpened] = useState(false);
-    
-    const extraToolsData = [{'independent': 'Independent'}, 
-        {'unMember':'United Nations Member'}, 
-        {'landlocked':'Land Locked'}]
 
     function handleChange(e) {
-        e.target.parentElement.classList.toggle('green-bg', e.target.checked)
+        e.target.parentElement.classList.toggle('green-bg', e.target.checked);
+        const itemToMutate = Object.keys(extraToolsData).find(el => el === e.target.id)
+        extraToolsData[itemToMutate].isSelected = !extraToolsData[itemToMutate].isSelected  
+        setExtraToolsData({...extraToolsData})
     }
-    
+
     return (
         <div className="extra-tools">
             <button onClick={() => setIsOpened(!isOpened)} className="btn extra-tools-btn">
@@ -19,17 +18,17 @@ export default function ExtraTools() {
             </button>
             {isOpened &&  
             <ul className="extra-tools-items grid-item">
-                {extraToolsData.map(e => 
-                    <li key={Object.values(e)} className="extra-tools-item flex-item">
-                        <label htmlFor={Object.keys(e)} className="extra-tools-item-label">
-                            <span>{Object.values(e)}</span>
+                {Object.keys(extraToolsData).map(e => 
+                    <li key={e} className="extra-tools-item flex-item">
+                        <label htmlFor={e} className="extra-tools-item-label">
+                            <span>{extraToolsData[e].title}</span>
                         </label>
-                        <div className={Object.values(e)[0] === 'Independent'?"extra-tools__input-container green-bg": "extra-tools__input-container"}>
+                        <div className={extraToolsData[e].isSelected?"extra-tools__input-container green-bg": "extra-tools__input-container"}>
                             <input  type="checkbox" 
                                     onChange={handleChange}  
-                                    name={Object.values(e)} 
-                                    id={Object.keys(e)} 
-                                    defaultChecked={Object.values(e)[0] === 'Independent'}
+                                    name={e} 
+                                    id={e} 
+                                    defaultChecked={extraToolsData[e].isSelected}
                                     className="extra-tools-item-input toggle-btn"
                             />
                         </div>

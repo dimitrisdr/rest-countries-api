@@ -1,36 +1,29 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Card from "./Card"
 
 export default function Cards({data, itemsToLoad, setItemsToLoad}) {
 
-    const [visibleData, setVisibleData] = useState([]);
     const [isallDataLoaded, setIsAllDataLoaded] = useState(false);
     const loadRef = useRef(null);
-    // console.log(data[0])
 
-    useEffect(()=> {
-        setVisibleData(data.slice(0, itemsToLoad))
-    }, [data, itemsToLoad])
+    const visibleData = useMemo(()=> data.slice(0, itemsToLoad), [data, itemsToLoad])
+
+    useEffect(() => { 
+        setIsAllDataLoaded(data.length <= visibleData.length);
+    }, [data.length, visibleData.length]);
 
     useEffect(()=> {
         const observer = new IntersectionObserver(
             (entries) => {
                 const target = entries[0]
-                
-                if (target.isIntersecting){
-                    if (visibleData.length < data.length){
-                        setItemsToLoad((prevItems )=> prevItems + 4)
-                    }else {
-                        setIsAllDataLoaded(true)
-                        observer.disconnect()
-  
-                    }   
+                if (target.isIntersecting && !isallDataLoaded){
+                    setItemsToLoad( (prevItems ) => prevItems + 24)
                 }
             }
         )
         if (loadRef.current) observer.observe(loadRef.current)
-        return () => observer.disconnect() 
-    }, [visibleData])
+        return () => {observer.disconnect()} 
+    }, [visibleData, isallDataLoaded])
 
     return (
             <>
