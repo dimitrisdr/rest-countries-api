@@ -109,6 +109,26 @@ input:focus, select:focus {
   fill: hsl(222, 14%, 82%);
 }
 
+.dark-mode .extra-tools-btn, .dark-mode .extra-tools-items {
+  background-color:  hsl(209, 23%, 22%);
+}
+
+.dark-mode .extra-tools__input-container {
+  background-color:  hsl(0, 0%, 52%);
+}
+
+.dark-mode .extra-tools__input-container.green-bg {
+  background-color: rgb(7, 211, 7);
+}
+
+.dark-mode .extra-tools-items {
+  color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .extra-tools-btn svg {
+  fill:hsl(0, 0%, 100%);
+}
+
 @font-face {
   font-family: 'Nurito-Sans';
   src: url('/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
