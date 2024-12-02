@@ -109,7 +109,7 @@ input:focus, select:focus {
   fill: hsl(222, 14%, 82%);
 }
 
-.dark-mode .extra-tools-btn, .dark-mode .extra-tools-items {
+.dark-mode .extra-tools-btn, .dark-mode .extra-tools-items, .dark-mode .extra-tools-container {
   background-color:  hsl(209, 23%, 22%);
 }
 
