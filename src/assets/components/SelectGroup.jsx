@@ -7,27 +7,34 @@ export default function SelectGroup({filterData, setFilterData}) {
     const data = ['All Regions', 'Africa', 'America', 'Europe', 'Oceania']
     const [isOpened, setIsOpened] = useState(false)
     const [isSelected, setIsSelected] = useState('All Regions')
-    const isOptionsClosedRef = useRef(null)
+    const optionsRef = useRef(null)
+    const btnRef = useRef(null)
 
     useEffect(()=> {
         function handleOutsideClick(e) {
-            if (isOpened && !isOptionsClosedRef.current.contains(e.target)) setIsOpened(false)
+            if (isOpened && !optionsRef.current.contains(e.target) && !btnRef.current.contains(e.target)) {
+                setIsOpened(false)
+            }
         }
-
+        console.log('outside click fired', 'setIsOpened: ',isOpened)
         document.addEventListener('mousedown', handleOutsideClick)
         return () => document.removeEventListener('mousedown', handleOutsideClick)
     }, [isOpened])
 
     return (
-        <div  className="select-container grid-item tools-item">
+        <div className="select-container grid-item tools-item">
             <button 
             className="btn input-btn flex-item"
-            onClick={()=> setIsOpened(!isOpened)}
+            onClick={(e)=> {
+                e.stopPropagation(); // Prevent the outside click handler from firing
+                setIsOpened((prev) => !prev); // Toggle the dropdown state
+            }}
+            ref={btnRef}
             >
             <span className="flex-item input-text">{isSelected}</span>
             </button>
             {  isOpened && 
-                <ul ref={isOptionsClosedRef} className="options-container grid-item">
+                <ul ref={optionsRef} className="options-container grid-item">
                     {data.map((e) => <InputItem key={e}
                      name={e} 
                      isOpened={isOpened} 
@@ -39,7 +46,6 @@ export default function SelectGroup({filterData, setFilterData}) {
                     }
                 </ul>
             }
-
         </div>
     )
 };
