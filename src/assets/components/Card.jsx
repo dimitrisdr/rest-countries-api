@@ -18,7 +18,7 @@ export default function Card({countryData}) {
             <div className="card">
                 <Link className="link" to={`${BASE_PATH}countries/${countryData.name.common}`} state={{data: countryData}}>
                 <div className="img-container">
-                    <img src={countryData.flags.svg} className="img flag-img" />
+                    <img alt="Countrys flag image" src={countryData.flags.svg} className="img flag-img" />
                 </div>
                 </Link>
                 <div className="country-info">
